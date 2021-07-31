@@ -1,0 +1,24 @@
+
+MITM (Man In The Middle Attack):-
+---------------------------------------------------
+It is a kind of Attack which can be done only on the private network. You can’t do this on Public Network. In this Attack, we set up MITMF in Kali. Suppose, a person in the same network surfs Facebook.com, then the packet with a request of facebook.com will go to the router and then router forward this request to the Facebook server. BUT, If we set up MITMF in Kali, then all the requests of the victim’s PC which is going to the router; MITMF is able to capture these all packets and can read the data from these packets.
+
+HSTS (HTTP Strict Transport Security):-
+--------------------------------------------------------
+HSTS is a type of security which protects websites against protocol downgrade attacks and cookie hijacking types of attacks. We can bypass HSTS websites also.
+
+Commands:-
+---------------------
+#apt-get install mitmf
+#mitmf -h
+#mitmf –spoof –arp -i eth0 –target ‘target IP’ –gateway ‘router’s IP’ –hsts
+
+Man-in-the-Middle attacks: Part one
+https://www.youtube.com/watch?v=8OR2dDIaIDw
+
+Man-in-the-Middle attacks: Part two
+https://www.youtube.com/watch?v=JZ8cO3cCuwo
+
+
+
+

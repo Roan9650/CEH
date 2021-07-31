@@ -1,0 +1,309 @@
+﻿Network Terminologies
+Introduction to Networks
+Network Protocols
+Ip address
+Ip subnets
+Nat /Bridge
+Dhcp Server
+
+Internet---------- network of networks
+
+What is a Network ?
+  
+  It is a connection of devices connected together with peripheral devices  to share information is known as a network
+
+                                       *nodes=computers=hops*
+
+Packet
+
+->Packets are envelopes of information that carry your data in pieces over a network 
+
+Network Interface
+
+-> It is point of connection or an interface in machine or any device through which the device is able to connect 
+		
+			Example
+						WIFI CARD
+						OR LAN CABLE/ETHERNET
+
+Types of Network
+	
+	LAN -> Local Area Network
+	WAN -> Wide Area Network
+	MAN -> MetroPloitan Area Network
+
+	PAN -> Personal Area Network
+	SAN -> Storage Area Network
+
+Network Topologies
+ Topologies is a logical sequence which define or depict how devices/nodes are connected in a network
+
+ 1 BUS TOPOLOGY->serial connection
+ 2 RING TOPOLOGY->circular connection(serial)
+ 3 STAR TOPOLOGY->star shaped(one node has other node and that node is the only connection point)
+ 4 MESH OR HYBRID TOPOLOGY->Interconected nodes does'nt have a parent node.
+
+
+ 			Network Protocols  
+
+    Internet Protocol Suite/TCP/ip- A set of data transfer protocol used by modern networks
+	  ||
+	  ||    
+     |  |
+   \\\\////
+    \\\///
+     \\// 
+      \/
+ TCP --> Transmission Control Protocol
+ HTTP --> Hyper Text Transfer Protocol
+ UDP --> User Datagram Protocol(used for establishing latency free and loss tolerating connection)
+ FTP --> File Transfer Protocol
+ SSH --> Secure Shell Protocol
+ SMTP --> Simple Mail Transfer Protocol
+ DHCP --> Dynamic Host Configuration Protocol
+ VoIP --> Voice Over Internet Protocol
+ POP3 --> Post Office Protocol 3
+
+
+HTTP -> 80
+HTTPS -> 443
+SMTP 25
+FTP 21
+VoIp 465
+POP3 110
+
+
+TCP ->Transmission Control Protocol
+
+TCP is a connection oriented protocol, It means that it is responsible for connection establisment and maintaining that connection until the applications at each end have finished exchanging messages.
+-breaks application data into packets so that they can flow through network
+-sends and recieves packets to maintain flow control
+
+tcp requires a handshake 
+client sync --> server
+client <-sync/ack server
+client ack-> server
+
+
+
+HTTP ->Hyper Text Transfer Protocol
+
+It is protocol used by world wide web and it defines how messages are formatted and transmitted and what action webserver and browsers should take in response to various commands
+
+Example-->A user enters a url in browser-> what it does is the browser sends http command to webserver inorder to request/get the webpage webpage.
+
+HTTPS-Hyper Text Transfer Protocol Secure
+
+
+UDP- User datagram protocol
+UDP is used to establish a latency free network and it is used in in data transfer,The problem with UDP is that it is a stateless protocol,now stateless means that it does not acknowledge that packets which are being sent and received.(it is used in media streaming)
+
+FTP-File Transfer Protocol
+It is a standard protocol which is used for transferring file in a client server computer network.
+
+SSH-Secure Shell Protocol 
+It is a protocol which enables secure remote login from one computer to another computer .It works on client server model.
+
+SMTP-Simple Mail Transfer Protocol
+It is standard protocol for delivering emails form one email server to another.
+
+Pop3 -> Post office Protocol
+It enables client to download email from an email sever.
+
+
+DHCP-Dynamic Host Configuration Protocol
+
+It is network management protocol that assigns ip address to device on a network so that it can communicate with other ip networks
+
+e.g Home Router gives an ipaddress to a device whenever it connects to wifi router
+
+
+NOTE->>DHCP can be implemented on Home Networks
+
+It can also be implemented on Campus 
+It can also be implemented by ISP on regional networks 
+
+Homework -> Go and study DHCP starvation attack(Yersinia) 
+
+Voip-Voice over ip 
+used for voice based communications on the internet e.g skype  
+
+WHAT IS AN IP ADDRESS ?
+
+An ip address is a 32 bit unique address assigned to a computer on the internet and is used for communication and identify computers on the internet 
+(Just Like an home address)
+
+example 192.168.1.1 -> an ip address
+         
+         8bit.8bit.8bit.8bit 
+
+   NOW kya hen ye 8 bit ?
+   kya hen ye bit
+   bit stands for binary digit now what is binary digit , it is the smallest unit of data in a computer.
+
+   A bit can either have value of 0 or 1
+
+   8 bits = 1 byte
+
+   1 killobyte = 1000 bytes
+	
+	192 = 11000000 in binary
+how
+1×2^7 + 1×2^6 + 0x2^5 + 0x2^4 + 0x2^3 + 0x2^2 + 0x2^1 + 0x2^0 = 192
+1		1		0		0		0		0		0		0	
+   
+ or 
+
+
+192.168.32.1
+
+(Binary form)so we have 192=128+64 = 11000000
+		168=128+32+8=	   = 10101000
+			  32=	   = 00100000
+			   1= 	   = 00000001
+so we have 
+			11000000.10101000.00100000.00000001
+
+128	64	32	16	8	4	2	1
+----------------------------------------------------------------
+1	1	0	0	0	0	0	0
+1	0	1	0	1	0	0	0
+0	0	1	0	0	0	0	0
+0	0	0	0	0	0	0	1
+
+
+
+
+
+Now ip address
+ 
+ ->IPv4-> 32 bit ->Relies on DHCP  (Only 4.29 billion unique addresses)
+
+ ->IPv6-> 128 bit -> Auto Configured (340 undecillion unique addresses= 340 Trillion Trillion Trillion addresses )
+
+
+Now the question is -> How 4 billion ip address are enough or were enough for today's world and how did we even we make it so far with only 4 billion ip address and That is with help of NAT or NETWORK ADDRESS TRANSLATION 
+
+
+
+
+NNNNNNNN        NNNNNNNN               AAA         TTTTTTTTTTTTTTTTTTTTTTT
+N:::::::N       N::::::N              A:::A        T:::::::::::::::::::::T
+N::::::::N      N::::::N             A:::::A       T:::::::::::::::::::::T
+N:::::::::N     N::::::N            A:::::::A      T:::::TT:::::::TT:::::T
+N::::::::::N    N::::::N           A:::::::::A     TTTTTT  T:::::T  TTTTTT
+N:::::::::::N   N::::::N          A:::::A:::::A            T:::::T        
+N:::::::N::::N  N::::::N         A:::::A A:::::A           T:::::T        
+N::::::N N::::N N::::::N        A:::::A   A:::::A          T:::::T        
+N::::::N  N::::N:::::::N       A:::::A     A:::::A         T:::::T        
+N::::::N   N:::::::::::A      N:::::AAAAAAAAA:::::A        T:::::T        
+N::::::N    N::::::::::N     A:::::::::::::::::::::A       T:::::T        
+N::::::N     N:::::::::N    A:::::AAAAAAAAAAAAA:::::A      T:::::T        
+N::::::N      N::::::::N   A:::::A             A:::::A   TT:::::::TT      
+N::::::N       N:::::::N  A:::::A               A:::::A  T:::::::::T      
+N::::::N        N::::::N A:::::A                 A:::::A T:::::::::T      
+NNNNNNNN         NNNNNNNAAAAAAA                   AAAAAAATTTTTTTTTTT
+
+
+What is Nat ??
+
+Network Address Translation (NAT) is designed for IP address conservation. It enables private IP networks that use unregistered IP addresses(common personal computers) to connect to the Internet. NAT operates on a router, usually connecting two networks together, and translates the private (not globally unique) addresses in the internal network into legal addresses, before packets are forwarded to another network.
+ 
+Basically, NAT allows a single device, such as a router, to act as an agent between the Internet (or public network) and a local network (or private network), which means that only a single unique IP address is required to represent an entire group of computers to anything outside their network.
+
+
+
+An ip address is of two types
+1 Private       2 Public
+
+Private Ip address
+-> Internal IP address valid on LAN but not on the internet for example
+	All the devices connected to your wifi network have recieved a private ip address
+
+There are three Different blocks of ipv4 addresses
+
+		Class A -> 10.0.0.0/8
+		(10.0.0.0 to 10.255.255.255)
+
+		Class B -> 172.16.0.0/12
+		(172.16.0.0 to 172.31.255.255)
+
+		Class C ->192.168.0.0/16
+		(192.168.0.0 to 192.168.255.255)
+
+Public Ip address 
+->Public ip address on the other-hand are globally unique and valid on the internet 
+Example the ip address assigned to my WAN interface wireless router by ISP
+ eg 42.111.108.97
+
+
+---------------------------------------------
+ ->www.whatismyip.com---will show global ip |
+ ->ipchicken                                |
+ ->ipcow					|
+---------------------------------------------
+
+
+
+
+IP SUBNETS:
+
+A subnetwork or subnet is a logical subdivision of an IP network. The practice of dividing a network into two or more networks is called sub-netting
+
+One network into many networks so that it can be easily managed and be secured
+
+
+	
+
+DHCP Server:
+		Dynamic Host Configuration Protocol Server
+SO 
+ every time some device is connected to wifi router an ip address is assigned to the device
+ and that assigning of the task is done by dhcp server in wifi router
+
+ The ip address is assigned with a lease (Time limit) to which the ip address will remain functional for a device
+   Example 
+    			Router Ip address =192.168.15.1
+
+    			 so The router can assign ip address to the devices from 192.168.15.2 to 192.168.15.255 
+
+    			 And This Assigning is done with the help of dhcp server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.piet.co.in/wp-login.php?redirect_to=http%3A%2F%2Fwww.piet.co.in%2Fwp-admin%2F&reauth=1
+
+
+
+
+
+
+
+
+
+http://www.piet.co.in/wp-login.php?redirect_to=http%3A%2F%2Fwww.piet.co.in%2Fwp-admin%2F&reauth=1
+
+
+
+
+
+> ipconfig
+
+
+
+Class	Address range
+Class A	1.0.0.1 to 126.255.255.254
+Class B	128.1.0.1 to 191.255.255.254
+Class C	192.0.1.1 to 223.255.254.254
+Class D	224.0.0.0 to 239.255.255.255

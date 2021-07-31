@@ -1,0 +1,40 @@
+
+INTRODUCTION TO FIREWALLS , IDS , IPS
+======================================
+
+FIREWALLS
+==========
+A firewall is a component which is used to filter the incoming and outgoing OR the inbound and outbound rules of a particular network. A firewall is having a database of signatures for the data packets moving inside or outside of a Network. The data packets moving in a Network Traffic having a malicious content can be blocked by a firewall according to the rule sets created by a Network Administrator.
+
+Link:- https://www.youtube.com/watch?v=kDEX1HXybrU&ab_channel=PowerCertAnimatedVideos
+
+TYPES OF FIREWALLS
+===================
+1. Softwares Based Firewalls : These are the firewalls which is  in the form of a application or a software which is having a rulesets of Inbound and Outbound Traffic coming from a Network. Eg. Windows Firewalls , LInux Firewalls - IP Tables.
+
+2. Hardware Based Firewalls : A hardware based firewall is a peripheral which is having a system box with a processor and giving us a Configuration Panel and having more advanced features from a Software Based Firewalls.
+Eg. Juniper, Sophos, Endian etc. 
+
+Link:- https://www.youtube.com/watch?v=aUPoA3MSajU
+
+IDS
+===
+IDS stands Intrusion DEtection System, it is a software or a hardware based program which detects every suspicious activity and create a log for it. It can also create the logs and send immediately to the Network Administrator so that they can find out that there is a Intruder in our network. 
+It can be determined in different types such as NIDS (Network IDS),  HIDS (Host IDS), WIDS(Wireless IDS) etc
+
+IPS
+===
+IPS stands for Intrusion Prevention System, it acts and works by preventing the intruders which have been doing malicious and illegal activities in the Network or with there clients immediately.
+
+EG. of IDS and IPS - SNORT etc.
+
+HONEYPOTS
+=========
+A honeypot is a attracting technique to fetch and traps a Hacker, Attacker or a victim which can be a WEb Application, a   Network System or a Access Point(Wireless Connection) which seems like absolutely normal but is created to trap the Attackers.
+
+Tool:- Pentbox
+
+
+Difference Among Hub/ Switch/ Router:-
+--------------------------------------------------------------
+Link:- https://www.youtube.com/watch?v=1z0ULvg_pW8

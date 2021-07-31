@@ -1,0 +1,59 @@
+
+
+#-------------------------------WAF Detection-----------------------------#
+
+WAF:-
+----------
+It is a technique to provide extra security layer over the Web Applications via configuration of Web Application Firewall [WAF].
+Like:- Cloudflare, ASPA Firewall, FirePass, FortiWeb, Huawei Cloud Firewall, HyperGuard, WTS-WAF etc.
+
+Link:- https://www.youtube.com/watch?v=hT2wFNDg9mk
+           https://www.youtube.com/watch?v=fbUbkR9hDyM
+
+Machine:-
+---------------
+	1. Kali 2020.3
+	2. Web Application
+
+Tools:-
+-----------
+	1. Wafw00f
+	2. Nmap
+
+Wafw00f:-
+----------------
+	     Wafw00f is a popular Python program that takes the guesswork of fingerprinting a website's firewall off your hands. Based on the responses to a series of carefully crafted web requests, Wafw00f can determine the underlying firewall used by a service that it probes. It is used to identify the WAF over the web applications.
+
+Download Link:- https://github.com/EnableSecurity/wafw00f
+
+Installation:-
+-------------------
+
+#git clone https://github.com/EnableSecurity/wafw00f.git
+#cd wafw00f
+#chmod 777 *
+#python setup.py install
+
+
+Commands:-
+--------------------
+
+#wafw00f -l
+#wafw00f https://www.domain.com
+#wafw00f  -a https://www.domain.com
+#wafw00f -v https://www.domain.com
+
+
+#-------------------------------------------------------------------------------------------------------------------#
+
+Nmap:-
+-------------
+	This tool is used to perform many things over here.
+
+Commands:-
+---------------------
+
+#nmap -p 80,443 <ip address/ domain.com>
+#nmap -p 80,443 --script=http-waf-detect <ip address/ domain.com>
+#nmap -p 80,443 --script=http-waf-fingerprint <ip address/ domain.com>
+

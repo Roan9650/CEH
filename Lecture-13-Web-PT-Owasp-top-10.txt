@@ -1,0 +1,225 @@
+#----------------------------------Web Penetration Testing------------------------------#
+
+Owasp ->Open Web Application Security Project
+
+Owasp top 10 Vulnerability:-
+------------------------------------------
+
+1. SQL Injection 
+2. Broken Authentication and Session Management
+3. Cross Site Scripting(XSS)
+4. Insecure Direct Object Reference
+5. Security Misconfiguration
+6. Sensitive Data Exposure
+7. Missing Function Level Access Control
+8. Cross site request forgery
+9. Using Known Vulnerable Components
+10.Unvalidated Redirects and Forwards
+
+
+
+1. Injection Vulnerabilities--> Sql,Commands
+    ------------------------------------
+
+Injection Attack occurs only if hacker's are able to send malicious unintended data from an application to the interpreter or say backend of the website .
+
+application->untrusted data->interpreter(backend)
+
+why this attacks occurs ->>
+This attack occurs because of improper validation-> for e.g lets take the example of a signin or signup field on a computer web application ,now when a user is trying to sign-in or sign-up
+it requires user to enter id/password in a certain manner, like there should be no special characters involved etc, You will learn about that as regular expressions
+
+Similarly when a developer is setting up a webapp/or application he/she need to validate all the parameter,link and domains of the website so that commands or special character dont work.
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+2. Broken Authentication and Session Management:-
+    --------------------------------------------------------------------------
+
+In broken authentication or session management hackers make an attempt to steal account from another users, Attackers/hacker uses leaks and flaws in the authentication or session management Functions.
+
+Why this attack occurs
+
+->User credentials are not protected when stored using hashing or encryption
+-
+>Credentials can be guessed or overwritten through weak management functions eg(Hacker is able to guess session id , or change password)
+
+->Session id's are exposed in the url
+->Session id's don't time out
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+3. Cross Site Scripting (XSS):-
+    ---------------------------------------
+
+It is an attack in which hackers are able to execute javascript code on a web site, It is of three types 
+
+->XSS Reflected 
+
+->XSS Stored 
+
+->Dom XSS
+
+This attack can be used by hacker to execute javascript code in victim browser to hijack user sessions,deface website, insert content, etc
+
+Why this attack occurs
+
+->Improper Validation
+->Unsafe JavaScript API
+
+The pentesting of a website can easily protect form xss attacks and xss can also be found with simple code analysis.
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+4. Insecure Direct Object Reference:-
+    --------------------------------------------------
+
+
+It is a vulnerability in which an attacker who is authorised to his/her own dash board is able to gain access to some other users account by changing his/her own object reference assigned by the app. 
+
+study tonight
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+5. Security Misconfiguaration:-
+    -----------------------------------------
+
+As the name is security misconfiguration what it means is imagine a webapp having admin accounts on it or just having default accounts with default passwords but having certain privledges. Now if you run a website which has default accounts configured and your website is available in the public domain. Now from an attackers perspective he/she can actually go out and try out default credentials and would be able to log in the website.
+
+why this attack occurs->
+->Keeping default credentials
+->Using a component or plugin which may have some default credentials
+e.g
+->>>>>>>>>>>Directory listing is not disabled on your server.
+
+Attacker discovers she can simply list directories to find any
+file. Attacker finds and downloads all your compiled Java
+classes, which she decompiles and reverse engineers to get all
+your custom code. She then finds a serious access control
+flaw in your application
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+6. Sensitive Data Exposure:-
+    --------------------------------------
+Sensitive data exposure is a vulnerability that occurs when a hacker is able to gain access to sensitive data in motion or at rest or even at customer/users browser
+
+
+eg 1
+An application encrypts credit card numbers in a database using automatic database encryption. However, this means it also decrypts this data automatically when retrieved, allowing an SQL injection flaw to retrieve credit card numbers in clear text. The system should have encrypted the credit card numbers using a public key, and only allowed back-end applications to decrypt them with the private key.
+
+eg 2
+A site simply doesn’t use SSL for all authenticated pages. Attacker simply monitors network traffic (like an open wireless network), and steals the user’s session cookie. Attacker then replays this cookie and hijacks the user’s session, accessing the user’s private data.
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+7. Missing Function Level Access Control:-
+    ---------------------------------------------------------
+->It is an attack in which a hacker or an anonymous person is able to access an application interface that it would otherwise never been able to access.
+
+eg www.anywebsite.com/user
+
+and hacker is able to access www.anywebsite.com/admin
+now if a hacker /person is able to do that it is a flaw.
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+8. Cross site request Forgery:-
+    -----------------------------------------
+In this attack the hacker creates a forged http request and tricks victim into submitting that request via images tabs or xss
+
+
+
+The application allows a user to submit a state changing request that does not include anything secret.
+For example:
+ http://anywebsite.com/app/transferFunds?amount=1500&destinationAccount=4673243243
+this all done by making the victim click on a link or on a certain appealing image 
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+9. Using Components with Known Vulnerability:-
+    ------------------------------------------------------------------
+In this case hacker tries to discover a weak component through scanning or manual analysis and then either finds out an exploit if already available or writes an exploit
+
+eg 
+a website using a server which has an rce exploit 
+or
+a wordpress website which has a vulnerable component and has an exploit.
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+10. Unvalidated Redirects and Forwards:-
+       -------------------------------------------------------
+Attacker links to unvalidated redirects and tricks victim into clicking it,attacker targets unsafe forwards to bypass security check.
+
+eg  http://anywebsite.com/redirect.jsp?url=evil.com
+
+->->url=evil.com<-<-
+
+
+#-------------------------------------------------------####---------------------------------------------------------#
+
+
+Introduction to DBMS
+Database
+
+Database is a collection of structured data set which contains all the data(important credentials,logs,etc)
+Database Management system-This data needs to be managed and it is done with help of dbms ,Dbms can also interact with user and writes user data to database.
+
+Database can be of two types 
+SQL 
+No SQL
+There are certain tables and entries in a database
+
+table name Member
+_________________________________________________________
+Name | ID | NUMBER |		 EMAIL 		| ADDRESS | Age |
+_________________________________________________________
+deepak|10|9123456719|deepak@yahoo.co.in|lokhandvala|26 |
+Gagan |4 |9145619237|gagan@gmail.com   |Delhi      |20 |   
+_________________________________________________________
+
+
+Structured querries would look like
+for example
+all the people who have age less then 30
+so query would look like
+
+Select * from Member where age<30
+
+
+h.w perform all querries
+queries
+ SELECT - extracts data from a database
+= UPDATE - updates data in a database
+= DELETE - deletes data from a database
+= INSERT INTO - inserts new data into a database
+= CREATE DATABASE - creates a new database
+= ALTER DATABASE - modifies a database
+= CREATE TABLE - creates a new table
+= ALTER TABLE - modifies a table
+= DROP TABLE - deletes a table
+= SELECT * from trainees -  Select everything from table name "trainees"
+= WHERE - Showing the location of the data of the table,column etc.
+
+Task:
+Study Mongodb & MySQL
+sql VS noSql

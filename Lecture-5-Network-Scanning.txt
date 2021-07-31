@@ -1,0 +1,164 @@
+
+#-----------------------------------------Network Scanning--------------------------------------------#
+
+Scanning Methodology:-
+---------------------------------
+It goes to define the steps which is follow by the every hacker when they are going to attack over network.
+	1. Checking the live Systems
+	2. Discovering Open Ports
+	3. Scanning Beyond IDS
+	4. Banner Grabbing
+	5. Scanning Vulnerablities
+
+
+Identify Live Systems in the Network:-
+-----------------------------------------------------
+1. Using Arp Scan Tool
+#arp-scan -l
+
+2. Using Netdiscover Tool
+#netdiscover
+#netdiscover  -i eth0 -r 192.168.1.1/16
+
+3. Using Nmap Tool
+#nmap -sn 192.168.1.1/24
+
+
+Network Scanning:-  
+--------------------------
+Its a process to identify the things which is available on a network.
+
+Tools for Network Scanning:-
+	1. NMAP Tool 
+	2. Hping3 Tool
+
+Commands:-
+-------------------
+#nmap <ip address>
+#nmap -v <ip address>
+#nmap -v -sS <ip address>
+#nmap -v -sSV <ip address>
+#nmap -v -sSVC <ip address>
+#nmap -v -sSVC -O <ip address>
+#nmap -v -Pn <ip address>
+#nmap -v -p 21,22,25,443 <ip address>
+#nmap -v -p 0-65535 <ip address>
+#nmap -v -p- <ip address>
+#nmap -v -sU <ip address>
+#nmap -v -sX <ip address>
+
+Fin Scan:- It is the process of sending the packet having only Fin Flag set.
+#nmap -v -sF <ip address>
+
+Null Scan:- It is the process of sending the packet without any flag set.
+#nmap -v -sN <ip address>
+
+Ack Scan:-
+#nmap -v -sA <ip address>
+
+All/Aggresive Scan:-
+#nmap -v -A <ip address>
+
+
+OS Fingerprinting & Banner Grabbing:-
+-----------------------------------------------------
+OS Fingerprinting is a technique, used to identify the information of Operating System running on a target machine.
+
+Two types of Fingerprinting:-
+---------------------------------------
+1. Active OS Fingerprinting
+2. Passive OS Fingerprinting
+
+
+Banner Grabbing:-
+-------------------------
+Banner Grabbing is similar to OS fingerprinting, but actually, Banner Grabbing is determining the service that are running on the target machine.
+Note:- Telnet is used to retrieve information of banner.
+
+Active OS Fingerprinting or Banner Grabbing:-
+------------------------------------------------------------
+Nmap can easily perform Active Banner Grabbing. For OS Detection nmap allows to send TCP & UDP packets & observe the response from the targeted host ip.
+
+Command:- 
+#nmap -O <ip address>
+
+Passive OS Fingerprinting or Banner Grabbing:-
+--------------------------------------------------------------
+Passive OS Fingerprinting perform by the Analysing Network Traffic along with the special inspection of  Time to Live  (TTL) value & Window Size.
+
+Operating System		TTL	TCP Window Size
+1. Linux			64	5840
+2. Google Customised	64	5720
+     Linux	
+3. FreeBSD		64	65535
+4. Windows XP		128	65535
+5. Windows Vista/7/Server	128	8192
+6. Cisco Router(ios 12.4)	255	4128
+
+
+2. Using Hping3 Tool
+#hping3 -1 <ip address>
+#hping3 -A <ip address>
+#hping3 -8 1-600 -S <ip address>
+#hping3 -F -P -U <ip address>
+
+
+Banner Grabbing Tools:-
+--------------------------------
+There are Multiple Tools are available for Banner Grabbing.
+1. ID Server
+2. Netcraft
+3. Netcat
+4. Telnet
+5. Maltego
+6. Xprobe
+7. P0f
+
+Xprobe2 Tool
+------------------
+#xprobe2 ----------- To give the OS Fingerprinting
+
+To check the installed location:-
+#whereis xprobe2
+
+Run Commands:-
+#xprobe2 <ip address>
+#xprobe2 <domain name>
+
+P0f  Tool
+------------
+p0f is a passive TCP/IP stack fingerprinting tool. p0f can attempt to identify the system running on machines that send network traffic to the box it is running on, or to a machine that shares a medium with the machine it is running on. p0f can also assist in analysing other aspects of the remote system.
+
+Commands:-
+-------------------
+To find out the available interface to listen:-
+#p0f -L
+
+To select the interface with promiscious mode (listening mode):-
+#p0f -i <interface name> -p
+#p0f -i eth0 -p
+
+Now generate traffic through the browser & see result on p0f:-
+#firefox www.crawsecurity.com
+
+Lots of packets has been shown there & we get some information:-
+1. Server IP & Used Port
+2. Running OS
+3. Parameters (if any used)
+4. Signature given by server
+5. Device Uptime
+6. Connection b/w both
+7. Raw Signature includes http header.
+
+For Saving all data in file:-
+#p0f -i <interface name> -p -o <save file path>
+#p0f -i eth0 -p -o /root/Desktop/p0f.log 
+
+
+Network Scanning Tools for Mobile OS:-
+-------------------------------------------------------
+There are several basic & advanced network tools:-
+1. Network Scanner
+2. Fing- Network Tool
+3. Network Discovery Tool
+4. Port Droid Tool

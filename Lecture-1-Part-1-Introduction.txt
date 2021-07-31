@@ -1,0 +1,96 @@
+Lecture --1
+
+Hacking -----
+
+VA --- Vulnerability Accessments---- weakness---- system/ network
+
+PT---- Penetration Testing----Exploits----Payload-----Scripting Lang.-----Gaining Access-----system/network
+
+To find out the weaknesses into the system /network and to exploits that weakness with the using of scripting language for gaining access of that particular system or network...
+
+or
+
+Hacking means accessing any data, information or any system with & without the permission of individual.
+
+Two types--- 1. authersized way ---- perform hacking with the permission of organization/owner...
+	      2. unautherized way----perform hacking without the the permission of organization/owner...
+
+
+Ethical----Means legal practices which should be performed.
+
+
+Link:- https://www.youtube.com/watch?v=jTIUgshJjds&ab_channel=TechRaj
+
+
+Offensive----------Attack------Red Team
+Defensive---------Protect-----Blue Team
+
+
+System ---- Mobile Base/ OS/ IOT Devices
+
+	Linux(Android)/ iOS(Unix)/Symbian(Java)/Windows(Win)
+	Unix(Apple)/ Linux(Kali/Ubantu/Parret/Mint) / Windows(Win7/ Win8/ Win10)
+
+Network --- IP (Internet Protocol)
+
+Address---
+1. Network Address ---- IP Address (192.168.0.23)
+2. Physical Address---- MAC Address
+3. Local Address--- Local Host Address (127.0.0.1)----127.90.34.54
+
+Windows---- ipconfig(Internet Protocol Configuration)
+Linux/Unix-----ifconfig(Interface Configuration)
+
+Windows----getmac(get the mac address of windows system)
+
+
+Hackers---
+Hackers are the most skilled and technical people who are profiecient in understanding the technical aspects.
+	or
+These are the persons who can perform the hacking part...
+
+Types of Hackers----
+1. White Hat Hacker(Ethical Hacker)
+2. Black Hat Hacker(Crackers)
+3. Gray Hat Hacker(Bug Bounty Hunter) ----- google search engine hack ---1 Millon $----
+
+Other Categories Of Hackers----
+1. Script Kiddies---- use pre-made tools
+2. Hacktivist----- website hack and leave msg over there
+3. Phreakers---- phone calls/ online chats/ msgs
+4. Noobz---- new persons who can just enter into the cyber security field..
+
+Follow--- thehackernews.com
+
+
+Cyber Crime----
+Perform any type hacking with the using of internet or electronic devices....
+
+Type of Cyber Crime------
+1. Computer Fraud
+2. Privacy Violation----- Exposing the data over the internet
+3. Identity Theft----- Stealing information from the system/network
+4. Sharing Copyrighted files/ informtion---- leaking the confidential files
+5. Eletronic Money Transfer------ Net Banking-----Transection Procedure
+6. Electronic Money Laundering--- Convert Black money to white
+7. ATM Fraud----- Cloning of atm card
+8. DOS Attack----- Denial of Service Attack (Router/ Server)
+9. MITM Attack----- Man in the Middle Attack (Capturing packets b/w the transmission channel) 
+10. Spam------ Fake Mailing System
+etc...
+
+Cyber Bullying:-
+https://www.youtube.com/watch?v=0Xo8N9qlJtk
+
+Rules for Ethical Hacker----
+1. Get a written permission from the owner/ organization before performing the hacking....
+2. Maintain the privacy of that organization....
+3. Transparently report to the owner/ organization about the weakness....
+4. Inform the related issue to the software and hardware vender....
+
+Task---
+Hackers---1. Edward Snowden
+	2. Kavin Mitnick
+	3. Parisa Tabriz
+
+Link:- https://www.youtube.com/watch?v=IgTvsqEsevk&ab_channel=TheRichest

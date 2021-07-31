@@ -1,0 +1,112 @@
+Information Gathering and Digital Footprinting
+==============================================
+Phases of hacking
+-------------------------
+	These phases are must to follow in order to perform any kind of hacking.
+	1. Information Gathering (most crucial part of hacking)
+	2. Scanning 
+	3. Gaining Access
+	4. Maintaining Access
+	5. Covering Traces /clearing tracks (Logs)
+	
+
+Footprinting
+--------------------
+	Footprinting is a part of reconnaissance process which is used for gathering possible information about a target computer system or network.
+
+
+	Information Gathering
+------------------------------
+	To collect as much Information as possible about the target.
+	Information Gathering is divided into further
+		1. Network Specific
+		2. Target Specific
+
+
+1. Network Specific : 
+===================
+	To collect the information about the network
+			Number Of people Connected
+			IP Address allocated to the connected devices
+			MAC Address of devices connected etc.
+Windows based tools:
+1.  Soft Perfect Network Scanner (NetScan)
+2.  GFI Languard
+
+Linux based tool:
+1. Network Mapper (NMap)
+2. Zenmap (GUI of NMap)
+
+
+
+
+
+2. Target Specific : Gathering informtion about the sources found.
+==================
+	i. Web site or web application
+	ii. Human Specific
+
+Web site or web Application:
+===========================
+Some crucial information needs to be picked out about the target's website these information can be IP address, Server information, sub domains. 
+
+	IP Address:   Ping > "ip address"
+	Sub Domain
+		https://dnsdumpster.com/
+		https://pentest-tools.com/information-gathering/find-subdomains-of-domain#
+		https://spyse.com/
+		https://subdomainfinder.c99.nl/
+		https://www.nmmapper.com/
+	Server Information
+		Dedicated or shared
+		https://www.yougetsignal.com --> reverse IP DOMAIN CHEKUP
+		http://reverseip.domaintools.com/
+	Database Information
+	Name of the registrar
+	Technologies 
+	White list and Black List
+			|--> robots.txt
+
+
+
+User-agent: *
+Disallow: /
+
+
+
+Informational websites : 		
+		https://whois.net/
+		https://whois.icann.org/en
+		https://mxtoolbox.com/
+
+Human Specific
+==============
+	Social Network
+	Social Networking Websites
+		Linkedin
+		Twitter
+		Facebook
+	Dating Websites
+	Matrimonial Websites
+	Job Portals
+	Fake Surveys
+	Spy Services
+
+Websites:
+	Jantakhoj.com
+	https://pipl.com/
+	https://whitepages.in/
+	https://www.indianfinders.com/
+	https://vahan.nic.in/
+
+Gathering Device Information:- Grabify
+
+
+
+Tools
+=====
+	Maltego
+		It is corporate level information gathering tool. It helps in gathering information about each and every aspect. 
+		Community Edition ---> Free
+			All transformations does not work in free edition.
+		https://www.paterva.com/web7/downloads.php

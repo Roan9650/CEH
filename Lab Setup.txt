@@ -1,0 +1,18 @@
+
+
+
+Lab Setup:---
+----------------
+
+1. Download And Install Virtual Hardware
+	==>VMware Workstation 16----------Paid
+	==>Virtual Box----------Free
+2. Linux:-
+	==>Kali 2020.3
+	==>Kali 2018.3
+	==>Kali 2019.1a
+3. Windows:-
+	==>Window XP (SP1/SP2)
+	==>Window 7 (Ultimate/Professional/Home)
+	==>Window 10 (Professional/Home)
+4. Metasploitable2
